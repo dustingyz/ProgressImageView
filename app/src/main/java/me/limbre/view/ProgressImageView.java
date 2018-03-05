@@ -135,35 +135,4 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
         mBitmap = BitmapFactory.decodeResource(getResources(), mBackDrawable);
     }
 
-    public void loadUrl(final String url) {
-        ProgressInterceptor.addListener(url, new ProgressListener() {
-            @Override
-            public void onProgress(int progress) {
-                showProgress(progress);
-            }
-        });
-        Glide.with(getContext())
-                .load(url)
-                .into(new DrawableImageViewTarget(this){
-                    @Override
-                    public void onLoadStarted(@Nullable Drawable placeholder) {
-                        super.onLoadStarted(placeholder);
-                        showProgress(0);
-                    }
-
-                    @Override
-                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        hideProgress();
-                        ProgressInterceptor.removeListener(url);
-                    }
-
-                    @Override
-                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        hideProgress();
-                        ProgressInterceptor.removeListener(url);
-                    }
-                });
-
-    }
-
 }
