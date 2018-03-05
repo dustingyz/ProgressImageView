@@ -19,6 +19,12 @@ import me.limbre.view.ProgressImageView;
  */
 
 public class ProgressImageDisplayer {
+
+    /**
+     * 无Options展示图片
+     * @param url
+     * @param imageView
+     */
     public static void display(final String url, final ProgressImageView imageView) {
         ProgressInterceptor.addListener(url, new ProgressListener() {
             @Override
@@ -51,6 +57,12 @@ public class ProgressImageDisplayer {
                 });
     }
 
+    /**
+     * requestOptions 将被 apply
+     * @param url
+     * @param imageView
+     * @param requestOptions 不能为空
+     */
     public static void display(final String url, final ProgressImageView imageView, @NonNull RequestOptions requestOptions) {
         ProgressInterceptor.addListener(url, new ProgressListener() {
             @Override

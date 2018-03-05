@@ -6,19 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.DrawableImageViewTarget;
-import com.bumptech.glide.request.transition.Transition;
-
-import me.limbre.glideprogress.ProgressInterceptor;
-import me.limbre.glideprogress.listener.ProgressListener;
-import me.limbre.glideprogressdemo.R;
 
 /**
  * Created by Limbre on 2018/3/5.

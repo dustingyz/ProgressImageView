@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -34,4 +36,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+}
+repositories {
+    mavenCentral()
 }
