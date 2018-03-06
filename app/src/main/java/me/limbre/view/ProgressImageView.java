@@ -1,12 +1,15 @@
 package me.limbre.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+
+import me.limbre.glideprogressdemo.R;
 
 /**
  * Created by Limbre on 2018/3/5.
@@ -21,6 +24,8 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
     private RectF mRectF;
     private Paint mPaint;
     private Bitmap mBitmap;
+    private float mCircleSize = 47;
+    private float mCircleWidth = 6;
 
     public ProgressImageView(Context context) {
         this(context, null);
@@ -32,10 +37,13 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
 
     public ProgressImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context, attrs);
     }
 
-    private void init() {
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.ProgressImageView);
+        mCircleSize = mTypedArray.getDimension(R.styleable.ProgressImageView_circle_size, 47f);
+        mCircleWidth = mTypedArray.getDimension(R.styleable.ProgressImageView_circle_width, 6f);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mRectF = new RectF();
@@ -75,13 +83,13 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
             }
             mPaint.setColor(0x22888888);
             mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setStrokeWidth(6);
-            canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, 47, mPaint);
+            mPaint.setStrokeWidth(mCircleWidth);
+            canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, mCircleSize, mPaint);
             mPaint.setColor(0xFFFFFFFF);
-            mRectF.set(getMeasuredWidth() / 2 - 47,
-                    getMeasuredHeight() / 2 - 47,
-                    getMeasuredWidth() / 2 + 47,
-                    getMeasuredHeight() / 2 + 47);
+            mRectF.set(getMeasuredWidth() / 2 - mCircleSize,
+                    getMeasuredHeight() / 2 - mCircleSize,
+                    getMeasuredWidth() / 2 + mCircleSize,
+                    getMeasuredHeight() / 2 + mCircleSize);
 
             float sweepAngle = 360f * mProgress / 100;
             canvas.drawArc(mRectF,-90, sweepAngle, false, mPaint);
@@ -120,6 +128,14 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
             return;
         }
         mBitmap = BitmapFactory.decodeResource(getResources(), mBackDrawable);
+    }
+
+    public void setCircleSize(float size) {
+        mCircleSize = size;
+    }
+
+    public void setCircleWidth(float width) {
+        mCircleWidth = width;
     }
 
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -24,17 +25,22 @@ class MainActivity : AppCompatActivity() {
 //        actionBar.
 
         val url = "https://www.nintendo.co.jp/top/img/switch_zelda_171208_s.jpg"
+        val urlGif = "https://wx4.sinaimg.cn/bmiddle/64112046gy1fp13klost7g207s09lx6s.gif"
         val url2 = "https://www.nintendo.co.jp/top/img/switch_kirbystarallies_180214_s.jpg"
 
-        ProgressInterceptor.addListener(url, {progress -> piv_01.showProgress(progress)})
+        ProgressInterceptor.addListener(urlGif, {progress -> piv_01.showProgress(progress)})
 
         piv_01.setLoadingDrawable(R.mipmap.ic_launcher_round)
+        piv_01.scaleType = ImageView.ScaleType.FIT_CENTER
+//        piv_01.setCircleSize(50)
+        piv_01.setCircleWidth(12)
+
 
         show_btn.setOnClickListener({
             val requestOptions = RequestOptions()
-            requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE)
+//            requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE)
             Glide.with(this)
-                    .load(url)
+                    .load(urlGif)
                     .apply(requestOptions)
                     .into(object : DrawableImageViewTarget(piv_01){
                         override fun onLoadStarted(placeholder: Drawable?) {
