@@ -11,16 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="me.limbre.glideprogressdemo.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!--<meta-data android:nalimbre.me.utils.glideprogress.GlideModuleImppdule"-->
-            <!--android:value="GlideModule"/>-->
+        <activity android:name=".ListActivity"/>
+        <!-- <meta-data android:nalimbre.me.utils.glideprogress.GlideModuleImppdule" -->
+        <!-- android:value="GlideModule"/> -->
     </application>
 
 </manifest>

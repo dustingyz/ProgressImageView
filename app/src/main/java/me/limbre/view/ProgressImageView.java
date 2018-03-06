@@ -16,8 +16,7 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
 
     private boolean mShowProgress = false;
     private int mProgress;
-//    private int mLoadingColor = 0x44888888;
-    private int mLoadingColor = 0;
+    private int mLoadingColor = -1;
     private int mBackDrawable = -1;
     private RectF mRectF;
     private Paint mPaint;
@@ -47,11 +46,11 @@ public class ProgressImageView  extends android.support.v7.widget.AppCompatImage
         super.onDraw(canvas);
 
         if (mShowProgress) {
-            if (mBackDrawable == -1) {
+            if (mLoadingColor != -1) {
                 mRectF.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
                 mPaint.setColor(mLoadingColor);
                 canvas.drawRect(mRectF, mPaint);
-            } else {
+            } else if (mBackDrawable != -1){
                 int width = mBitmap.getWidth();
                 int height = mBitmap.getHeight();
 

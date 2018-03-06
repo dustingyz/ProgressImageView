@@ -1,8 +1,11 @@
 package me.limbre.glideprogressdemo
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -17,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        actionBar.
 
         val url = "https://www.nintendo.co.jp/top/img/switch_zelda_171208_s.jpg"
         val url2 = "https://www.nintendo.co.jp/top/img/switch_kirbystarallies_180214_s.jpg"
@@ -55,4 +60,17 @@ class MainActivity : AppCompatActivity() {
         ProgressImageDisplayer.display(url2, piv_02)
 
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.item_show_list) {
+            startActivity(Intent(this, ListActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.home_activity_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
 }
