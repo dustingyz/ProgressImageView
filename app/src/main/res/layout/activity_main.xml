@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <me.limbre.view.ProgressImageView
+            <me.limbre.glide4progressimageview.view.ProgressImageView
                 android:id="@+id/piv_01"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -37,7 +37,7 @@
                 android:layout_marginTop="20dp"
                 android:text="Show"/>
 
-            <me.limbre.view.ProgressImageView
+            <me.limbre.glide4progressimageview.view.ProgressImageView
                 android:id="@+id/piv_02"
                 android:layout_width="60dp"
                 android:layout_height="100dp"

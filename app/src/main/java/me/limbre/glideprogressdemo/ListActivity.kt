@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_list.*
-import me.limbre.utils.ProgressImageDisplayer
-import me.limbre.view.ProgressImageView
+import me.limbre.glide4progressimageview.ProgressImageDisplayer
+import me.limbre.glide4progressimageview.view.ProgressImageView
 
 /**
  * Created by Limbre on 2018/3/6.

@@ -8,13 +8,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.bumptech.glide.request.transition.Transition
 import kotlinx.android.synthetic.main.activity_main.*
-import me.limbre.glideprogress.ProgressInterceptor
-import me.limbre.utils.ProgressImageDisplayer
+import me.limbre.glide4progressimageview.ProgressImageDisplayer
+import me.limbre.glide4progressimageview.ProgressInterceptor
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,12 +27,12 @@ class MainActivity : AppCompatActivity() {
         val urlGif = "https://wx4.sinaimg.cn/bmiddle/64112046gy1fp13klost7g207s09lx6s.gif"
         val url2 = "https://www.nintendo.co.jp/top/img/switch_kirbystarallies_180214_s.jpg"
 
-        ProgressInterceptor.addListener(urlGif, {progress -> piv_01.showProgress(progress)})
+        ProgressInterceptor.addListener(urlGif, { progress -> piv_01.showProgress(progress)})
 
         piv_01.setLoadingDrawable(R.mipmap.ic_launcher_round)
         piv_01.scaleType = ImageView.ScaleType.FIT_CENTER
 //        piv_01.setCircleSize(50)
-        piv_01.setCircleWidth(12)
+        piv_01.setCircleWidth(12f)
 
 
         show_btn.setOnClickListener({
